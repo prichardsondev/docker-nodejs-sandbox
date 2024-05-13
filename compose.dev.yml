@@ -1,0 +1,12 @@
+services:
+  node-app:
+    build:
+      context: .
+      args:
+        - NODE_ENV=dev
+    volumes:
+      - ./:/app #bindmount volume local path to container path
+      - /app/node_modules #anonymous volume path to container -v flag deletes this
+    environment:
+      - NODE_ENV=dev
+    command: npm run dev
